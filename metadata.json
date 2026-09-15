@@ -1,0 +1,8 @@
+{
+  "name": "Remix مركز الإنتاجية والتركيز (بومودورو)",
+  "description": "واجهة مستقبلية ساحرة وهادئة لمؤقت بومودورو التفاعلي مع حلقات عداد دائرية متوهجة، قائمة مهام ذكية مدعومة بالتخزين المحلي، وشريط شبكة علوي.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
