@@ -8,7 +8,6 @@ import { NetworkBar } from './components/NetworkBar';
 import { PomodoroTimer } from './components/PomodoroTimer';
 import { TaskList } from './components/TaskList';
 import { AmbientSoundBar } from './components/AmbientSoundBar';
-import { StandaloneModal } from './components/StandaloneModal';
 import { LegalFooter, LegalModals } from './components/LegalFooter';
 import { CookieBanner } from './components/CookieBanner';
 import { Task, TimerMode } from './types';
@@ -17,7 +16,6 @@ import { Sparkles, Shield, Cpu, Activity, Clock, Zap, CheckCircle2, User } from 
 export default function App() {
   const [activeTask, setActiveTask] = useState<Task | null>(null);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
-  const [isExportModalOpen, setIsExportModalOpen] = useState<boolean>(false);
   const [activeLegalModal, setActiveLegalModal] = useState<'disclaimer' | 'cookies' | null>(null);
 
   const handleCycleComplete = (mode: TimerMode) => {
@@ -46,7 +44,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#070B13] text-[#E2E8F0] flex flex-col relative cyber-grid">
       {/* Top Network Bar with link to previous network site: https://rypto-tracker.vercel.app/ */}
-      <NetworkBar onOpenStandaloneModal={() => setIsExportModalOpen(true)} />
+      <NetworkBar />
 
       {/* Ambient background light orbs (Subtle, non-distracting) */}
       <div className="fixed top-1/4 -right-20 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none animate-ambient-glow" />
@@ -142,12 +140,6 @@ export default function App() {
       <LegalModals
         activeModal={activeLegalModal}
         onClose={() => setActiveLegalModal(null)}
-      />
-
-      {/* Standalone Single File HTML Export Modal */}
-      <StandaloneModal
-        isOpen={isExportModalOpen}
-        onClose={() => setIsExportModalOpen(false)}
       />
     </div>
   );

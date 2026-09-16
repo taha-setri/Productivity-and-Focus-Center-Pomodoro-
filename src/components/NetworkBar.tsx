@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ExternalLink, Radio, ShieldCheck, Activity, Globe } from 'lucide-react';
+import { ExternalLink, Radio, Activity, Globe } from 'lucide-react';
 
-interface NetworkBarProps {
-  onOpenStandaloneModal?: () => void;
-}
-
-export const NetworkBar: React.FC<NetworkBarProps> = ({ onOpenStandaloneModal }) => {
+export const NetworkBar: React.FC = () => {
   const [timeStr, setTimeStr] = useState<string>('');
   const [ping, setPing] = useState<number>(24);
 
@@ -84,24 +80,12 @@ export const NetworkBar: React.FC<NetworkBarProps> = ({ onOpenStandaloneModal })
           <ExternalLink className="w-3 h-3 text-amber-400 group-hover:text-cyan-300 group-hover:translate-x-[-2px] transition-transform" />
         </a>
 
-        {/* Live Clock & Standalone Export Button */}
+        {/* Live Clock */}
         {timeStr && (
           <div className="hidden lg:flex items-center gap-1.5 bg-slate-900/80 border border-slate-800 px-2.5 py-1 rounded-md text-slate-300 font-mono-cyber">
             <Radio className="w-3 h-3 text-cyan-400 animate-pulse" />
             <span>{timeStr}</span>
           </div>
-        )}
-
-        {onOpenStandaloneModal && (
-          <button
-            id="btn-open-standalone-export"
-            onClick={onOpenStandaloneModal}
-            className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-900/70 border border-slate-700/60 hover:border-cyan-500/40 text-slate-300 hover:text-cyan-300 transition-colors text-[11px]"
-            title="تصدير كملف HTML مستقل كامل ومدمج"
-          >
-            <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-            <span className="hidden sm:inline">ملف HTML مستقل</span>
-          </button>
         )}
       </div>
     </header>
